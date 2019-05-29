@@ -1,0 +1,9 @@
+####################### Desafio Back-end e Front-end #############################
+
+Links da API:
+http://localhost/api/public/usuario/lista   - Lista todos os usuários cadastrados
+http://localhost/api/public/usuario/criar   - Cria um novo Usuário
+http://localhost/api/public/usuario/editar  - Edita usuário
+http://localhost/api/public/usuario/1       - Exclui usuário com id 1
+
+api e front-end foram criados com laravel 5.6;
