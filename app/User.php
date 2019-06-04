@@ -36,4 +36,27 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Filter Users
+     * 
+     * @param Array $data
+     * @return Array $results
+     */
+    public function getResults(Array $data)
+    {
+        $results = $this->where(function ($query) use ($data) {
+            if (isset($data['name']))
+                $query->where('name', 'LIKE', "{$data['name']}%");
+            
+            if (isset($data['cpf']))
+                $query->where('cpf', $data['cpf']);
+
+            if (isset($data['email']))
+                $query->where('email', $data['email']);
+        })
+        ->get();
+
+        return $results;
+    }
 }
