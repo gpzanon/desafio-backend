@@ -9,6 +9,9 @@ use App\Http\Controllers\Controller as Controller;
 
 class BaseController extends Controller
 {
+
+    public $successStatus = 200;
+    public $notAuthorized = 'Não autorizado (É necessário ser admin para usar essa função)';
     /**
      * success response method.
      *
