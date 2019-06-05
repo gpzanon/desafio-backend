@@ -24,6 +24,9 @@ class UserController extends Controller
     public function __construct(User $user)
     {
         $this->user = $user;
+
+        // Allowing only the index and store methods to be accessed without authentication
+        $this->middleware('auth:api')->except(['index', 'store']);
     }
 
     /**
