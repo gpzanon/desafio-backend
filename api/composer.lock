@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2a4d56d2a393038743113a83b7f4386a",
+    "content-hash": "cfd1e19b75c596a40b7a747720114ff0",
     "packages": [
         {
             "name": "defuse/php-encryption",
@@ -1044,6 +1044,53 @@
                 "psysh"
             ],
             "time": "2019-08-07T15:10:45+00:00"
+        },
+        {
+            "name": "laravellegends/pt-br-validator",
+            "version": "6.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/LaravelLegends/pt-br-validator.git",
+                "reference": "4b5b6adfe7e8206c9d36a365210f023a1cf01167"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/LaravelLegends/pt-br-validator/zipball/4b5b6adfe7e8206c9d36a365210f023a1cf01167",
+                "reference": "4b5b6adfe7e8206c9d36a365210f023a1cf01167",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^6.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "3.1.* || 4.0.*",
+                "phpunit/phpunit": "4.8.* || ^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "LaravelLegends\\PtBrValidator\\ValidatorProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "LaravelLegends\\PtBrValidator\\": "src/pt-br-validator"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Wallace de Souza Vizerra",
+                    "email": "wallacemaxters@gmail.com"
+                }
+            ],
+            "description": "Uma biblioteca contendo validações de formatos Brasileiros, para o Laravel 5",
+            "time": "2019-10-02T17:07:11+00:00"
         },
         {
             "name": "lcobucci/jwt",
