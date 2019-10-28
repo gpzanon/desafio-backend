@@ -38,11 +38,15 @@ class UserController extends Controller
         $user->cpf = $request->cpf;
         $user->password = bcrypt($request->password);
         $user->save();
+        return response()->json([
+            'message' => 'Usuário Alterado com Sucesso!'], 201);
     }
     public function destroy($id)
     {
         $user = User::findOrFail($id);
         $user->delete();
+        return response()->json([
+            'message' => 'Usuário Apagado com Sucesso!'], 201);
     }
 
     
