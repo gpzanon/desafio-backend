@@ -39,5 +39,8 @@ export class LoginComponent implements OnInit {
       }
     }
   }
+  novo(){
+    this.route.navigate(['usuarios/novo']);
+  }
 
 }

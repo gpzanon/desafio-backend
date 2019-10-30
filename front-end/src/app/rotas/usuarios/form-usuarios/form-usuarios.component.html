@@ -1,1 +1,49 @@
-<p>form-usuarios works!</p>
+<form [formGroup]="formUser" (submit)="salvar()">
+        <div class="row">
+                <div class="offset-s5 col s12 m10">
+                  <div class="card">
+                    <div class="card-content">
+                      <span class="card-title" *ngIf="!id">Novo Usuário</span>
+                      <span class="card-title" *ngIf="id">Editando Usuário {{id}}</span>
+                      <div class="row">
+                          <div class="col s12">
+                                <div class="row">
+                                        <div class="input-field col s12">
+                                          <input id="name" type="text" class="validate" formControlName="name">
+                                          <label for="name">Nome Completo</label>
+                                          <small class="invalid" *ngIf="formUser.controls.name.errors?.required && (formUser.controls.name.touched || formUser.controls.name.dirty)">É obrigatório preencher o nome completo</small>
+                                        </div> 
+                                      </div>
+                                      <div class="row">
+                                            <div class="input-field col s12">
+                                              <input id="cpf" type="text" class="validate" formControlName="cpf" mask="000.000.000-00">
+                                              <label for="cpf">CPF</label>
+                                              <small class="invalid" *ngIf="formUser.controls.cpf.errors?.required && (formUser.controls.cpf.touched || formUser.controls.cpf.dirty)">É obrigatório preencher o cpf</small>
+                                            </div> 
+                                          </div>
+                              <div class="row" *ngIf="!id">
+                                <div class="input-field col s12">
+                                  <input id="email" type="email" class="validate" formControlName="email">
+                                  <label for="email">E-mail</label>
+                                  <small class="invalid" *ngIf="formUser.controls.email.errors?.required && (formUser.controls.email.touched || formUser.controls.email.dirty)">É obrigatório preencher o endereço de e-mail</small>
+                                  <small class="invalid" *ngIf="formUser.controls.email.errors?.email  && (formUser.controls.email.touched || formUser.controls.email.dirty) ">Digite um endereço de e-mail válido</small>
+                                </div> 
+                              </div>
+                            <div class="row" *ngIf="!id">
+                              <div class="input-field col s12">
+                                <input id="password" type="password" class="validate" formControlName="password">
+                                <label for="password">Senha</label>
+                                <small class="invalid" *ngIf="formUser.controls.password.errors?.required  && (formUser.controls.password.touched || formUser.controls.password.dirty)">É obrigatório preencher a senha</small>
+                              </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="card-action">
+                      <a href="javascript:void(0);" (click)="salvar()">Cadastrar</a>
+                      <a [routerLink]="['/usuarios']" >Voltar</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+    </form>

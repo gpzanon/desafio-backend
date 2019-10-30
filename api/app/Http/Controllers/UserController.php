@@ -28,15 +28,11 @@ class UserController extends Controller
                     }
                 }
             ],
-            'email'    => 'required|string|email|unique:users',
             'cpf' => 'required|string|cpf',
-            'password' => 'required|string',
         ]);
         $user = User::findOrFail($id);
         $user->name = $request->name;
-        $user->email = $request->email;
         $user->cpf = $request->cpf;
-        $user->password = bcrypt($request->password);
         $user->save();
         return response()->json([
             'message' => 'Usuário Alterado com Sucesso!'], 201);

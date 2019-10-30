@@ -1,1 +1,33 @@
-<p>lista-usuarios works!</p>
+
+<div style="margin:15px 0px">
+    <div class="row">
+        <div class="col s10">
+            <a class="waves-effect waves-light btn" [routerLink]="['/novo']">  <i class="material-icons">add_circle</i> Novo Usuário</a>
+        </div>
+        <div class="col s2">
+                <a class="btn-floating btn-large waves-effect waves-light red"(click)="sair()" ><i class="material-icons">directions_run</i></a>
+            </div>
+    </div>
+</div>
+<table class="striped" *ngIf="userList">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome Completo</th>
+            <th>Email</th>
+            <th>CPF</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of userList">
+            <td>{{user.id}}</td>
+            <td>{{user.name}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.cpf}}</td>
+            <td><a class="waves-effect waves-light btn-small" [routerLink]="user.id" ><i class="material-icons left">edit</i>Editar</a></td>
+            <td><a class="waves-effect waves-light btn-small"(click)="excluir(user.id)"><i class="material-icons left">delete_forever</i>Excluir</a></td>
+        </tr>
+    </tbody>
+</table>
