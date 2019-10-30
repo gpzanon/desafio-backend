@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { LoginService } from './login.service';
 import { Router } from '@angular/router';
+import { AuthGuardService } from 'src/app/guards/auth-guard.service';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,8 @@ export class LoginComponent implements OnInit {
 
   constructor(private fb: FormBuilder, 
               private loginService: LoginService,
-              private route: Router) { }
+              private route: Router,
+              public authGuardService: AuthGuardService) { }
   formLogin;
   invalid:boolean;
   ngOnInit() {
@@ -23,15 +25,12 @@ export class LoginComponent implements OnInit {
     
   }
   logar(){
-    console.log(this.formLogin)
     if(this.formLogin.valid){
       this.loginService.logar(this.formLogin.getRawValue()).then((res:any)=>{
         this.invalid = false;
         localStorage.setItem('Token', res.token_type + ' '+res.access_token);
-        this.route.navigate(['usuarios'])
-      })
-      .catch((err:any)=>{
-        this.invalid = true;
+        this.authGuardService.isAuthenticated = true;
+        this.route.navigate(['usuarios']);
       })
     }else{
       for (let i in this.formLogin.controls){
