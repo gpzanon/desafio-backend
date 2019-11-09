@@ -1,0 +1,35 @@
+<form [formGroup]="formLogin" (submit)="logar()">
+
+    <div class="row">
+            <div class="offset-s5 col s12 m10">
+              <div class="card">
+                <div class="card-content">
+                  <span class="card-title">Login</span>
+                  <div class="row">
+                      <div class="col s12">
+                          <div class="row">
+                            <div class="input-field col s12">
+                              <input id="email" type="email" class="validate" formControlName="email">
+                              <label for="email">E-mail</label>
+                              <small class="invalid" *ngIf="formLogin.controls.email.errors?.required && (formLogin.controls.email.touched || formLogin.controls.email.dirty)">É obrigatório preencher o endereço de e-mail</small>
+                              <small class="invalid" *ngIf="formLogin.controls.email.errors?.email  && (formLogin.controls.email.touched || formLogin.controls.email.dirty) ">Digite um endereço de e-mail válido</small>
+                            </div> 
+                          </div>
+                        <div class="row">
+                          <div class="input-field col s12">
+                            <input id="password" type="password" class="validate" formControlName="password">
+                            <label for="password">Senha</label>
+                            <small class="invalid" *ngIf="formLogin.controls.password.errors?.required  && (formLogin.controls.password.touched || formLogin.controls.password.dirty)">É obrigatório preencher a senha</small>
+                          </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="card-action">
+                  <a href="javascript:void(0);" (click)="logar()">Entrar</a>
+                  <a href="javascript:void(0);"(click)="novo()">Cadastrar</a>
+                </div>
+              </div>
+            </div>
+          </div>
+</form>
