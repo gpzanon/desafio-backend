@@ -1,73 +1,78 @@
-# Desafio Desenvolvedor BackEnd
+<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
 
-Seja parte de um dos grupos de empresas e franqueadoras que mais cresce no Brasil.
+<p align="center">
+<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
+</p>
 
-Esse é o nosso desafio para a vaga de desenvolvedor Back-end  no [Grupo Zanon](http://www.grupozanon.com.br/). 
-Serão testadas as habilidades e qualidade de código ao transformar requisitos limitados em uma aplicação web.
+## About Laravel
 
-Procuramos desenvolvedor engajado, versátil em resolver problemas que impactam o negócio de empresas, utilizando conhecimento de desenvolvimento de tecnologias back-end.
-Confortável com a responsabilidade de criar, gerir e publicar aplicações.
-Ávido por buscar sempre boas práticas para trabalhar com inovação, tecnologias modernas e emergentes.
+Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
+- [Simple, fast routing engine](https://laravel.com/docs/routing).
+- [Powerful dependency injection container](https://laravel.com/docs/container).
+- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
+- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
+- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
+- [Robust background job processing](https://laravel.com/docs/queues).
+- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-### O que procuramos?
-- Perfil proativo, saber trabalhar em equipe , raciocínio lógico, responsabilidade e comprometimento são imprescindíveis para essa oportunidade.
-- Fácil adaptação em projetos experimentais e complexos;
-- Aprendizado rápido no uso de tecnologias de desenvolvimento de software
-- Experiência em Desenvolvimento de software Web.
+Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
+## Learning Laravel
 
+Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
-### Instruções para o desafio
+If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-- **Fork** esse repositório e faça o desafio numa branch com o seu nome (exemplo: `nome-sobrenome`);
-- Assim que concluir o seu desafio, abra um **pull request** com suas alterações.
+## Laravel Sponsors
 
-### Tempo gasto
-- Recomendamos dispensar aténo máximo 10 horas neste projeto.
+We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
 
-### Desafio
-- Desenvolver uma aplicação web responsável por gerenciar o cadsatro completo de usuários via API.
-- *Soluções parcias serão aceitas.*
+- **[Vehikl](https://vehikl.com/)**
+- **[Tighten Co.](https://tighten.co)**
+- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
+- **[64 Robots](https://64robots.com)**
+- **[Cubet Techno Labs](https://cubettech.com)**
+- **[Cyber-Duck](https://cyber-duck.co.uk)**
+- **[British Software Development](https://www.britishsoftware.co)**
+- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
+- **[DevSquad](https://devsquad.com)**
+- [UserInsights](https://userinsights.com)
+- [Fragrantica](https://www.fragrantica.com)
+- [SOFTonSOFA](https://softonsofa.com/)
+- [User10](https://user10.com)
+- [Soumettre.fr](https://soumettre.fr/)
+- [CodeBrisk](https://codebrisk.com)
+- [1Forge](https://1forge.com)
+- [TECPRESSO](https://tecpresso.co.jp/)
+- [Runtime Converter](http://runtimeconverter.com/)
+- [WebL'Agence](https://weblagence.com/)
+- [Invoice Ninja](https://www.invoiceninja.com)
+- [iMi digital](https://www.imi-digital.de/)
+- [Earthlink](https://www.earthlink.ro/)
+- [Steadfast Collective](https://steadfastcollective.com/)
+- [We Are The Robots Inc.](https://watr.mx/)
+- [Understand.io](https://www.understand.io/)
+- [Abdel Elrafa](https://abdelelrafa.com)
+- [Hyper Host](https://hyper.host)
+- [Appoly](https://www.appoly.co.uk)
+- [OP.GG](https://op.gg)
 
-- Método API (GET) : Dados do suário
-	- Dados do usuário em JSON,
-- Método API (POST) : Novo usuário
-	- Inserir usuário via API validando Nome completo e CPF, sendo o e-mail compo único.
-- Método API (POST) : Edição do usuário
-- Método API (DELETE) : Remoção do usuário
+## Contributing
 
+Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-Qualquer solução de base de dados ou armazenamento será aceita.
+## Code of Conduct
 
-### Escopo do desafio
-- Instruções básicas de uso dos métodos.
-- Documentar todas suposições realizadas.
-- O desenvolvimento do backend deve ser feito em PHP .
-- Preferencialmente utilizar Laravel 5.6+ com toda sua stack.
-- Preferencialmente utilizar CodeIgniter.
-- É aceitável utilizar algumas respostas estáticas em determinadas porções da aplicação.
-- Não é necessário submeter uma aplicação que cumpra cada um dos requisitos descritos, mas o que for submetido deve funcionar.
+In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
+## Security Vulnerabilities
 
-### O que será avaliado
-- O código será avaliado seguindo os seguintes critérios: manutenabilidade, clareza e limpeza de código; resultado funcional; entre outros fatores. 
-- O histórico no `git` também está avaliado.
-- Não esqueça de documentar o processo necessário para rodar a aplicação.
-- Se necessário explique as decisões técnicas tomadas, as escolhas por bibliotecas e ferrramentas, o uso de patterns etc.
+If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
+## License
 
-### Diferenciais
-- Criar uma camada de segurança para uso da API.
-- Liberação da aplicação utilizando Docker.
-- Boa documentação de código e de serviços.
-- Testes do código.
-
----
-Em caso de dúvidas, envie um email para [caio.yonashiro@grupozanon.com.br](mailto:caio.yonashiro@grupozanon.com.br).
-
-
-**Um dos nossos pilares é a valorização das pessoas e temos orgulho de dizer que somos uma empresa que apoia a diversidade e inclusão. Sendo assim, consideramos todos os candidatos para as nossas oportunidades, independente de raça, cor, religião, gênero, identidade de gênero, nacionalidade, deficiência, ascendência ou idade.**
-
-
-**Até breve**
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
