@@ -18,11 +18,11 @@
 
 # Instalação
 
-####Faça o download do projeto ou clone o repositório
+### Faça o download do projeto ou clone o repositório
 
 `$ git clone https://github.com/rodrigosarri/desafio-backend.git `
 
-####Faça a instalação das dependências
+### Faça a instalação das dependências
 
 `$ composer install `
 
@@ -32,9 +32,9 @@ Crie a base de dados utilizando a instrução (opcional)
 
 Faça uma cópia do arquivo `.env.example` e renomei para `.env` e altere nas linhas 12, 13 e 14 para os dados da sua conexão com banco de dados e base de dados.
 
-        DB_DATABASE=challenge
-		DB_USERNAME=php
-		DB_PASSWORD=123456
+    DB_DATABASE=challenge
+	DB_USERNAME=php
+	DB_PASSWORD=123456
 
 É necessário realizar a "instalação" das tabelas na base de dados, dessa forma para realizar essa ação é necessário abrir o CMD, PowerShell ou Terminal, acesse a pasta (*cd desafio-backend*): `desafio-backend` e execute o comando: 
 
