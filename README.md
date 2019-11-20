@@ -55,6 +55,9 @@ Rode a aplicação API através do comando:
 A aplicação está pronta para ser utilizada. As rotas para criar, selecionar o usuário, atualizar e apagar são:
 
 http://localhost:8000/api/register
+
 http://localhost:8000/api/profile
+
 http://localhost:8000/api/update
+
 http://localhost:8000/api/delete
