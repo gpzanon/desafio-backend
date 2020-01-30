@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use http\Exception\InvalidArgumentException;
 use Illuminate\Http\Request;
 use App\Cadastro;
 
@@ -15,7 +16,14 @@ class CadastroController extends Controller
 
     public function store(Request $request)
     {
-        Cadastro::create($request->all());
+        if(substr_count($request->get("email"), '@') != 1)
+        {
+            abort(422, 'Email invalido!');
+        }
+        else
+        {
+            return Cadastro::create($request->all());
+        }
     }
 
     public function show($id)

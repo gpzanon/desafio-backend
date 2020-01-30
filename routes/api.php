@@ -14,7 +14,7 @@ use Illuminate\Http\Request;
 */
 
 Route::get('/cadastro', 'CadastroController@index');
-Route::get('/cadastro/{id}', 'CadastroController@index', function($id)
+Route::get('/cadastro/{id}', 'CadastroController@show', function($id)
 {
     return $id;
 });
@@ -29,3 +29,5 @@ Route::delete('/cadastro/delete/{id}', 'CadastroController@destroy', function($i
 {
     return 'ID '. $id.' deletado';
 });
+
+//Pode-se criar também uma rota para o controller no "total", utilizando apenas Route::apiResource('/cadastro', 'CadastroController');
