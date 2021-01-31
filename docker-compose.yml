@@ -1,0 +1,57 @@
+version: "2"
+services:
+  apache_with_php:
+    build: .
+    ports:
+      - "8001:80"
+    volumes:
+      - ./:/var/www/html/
+    links:
+      - db
+    networks:
+      - default
+    environment:
+      XDEBUG_CONFIG: remote_host=${XDEBUG_HOST}
+      PHP_IDE_CONFIG: serverName=docker
+
+  init:
+    build: .
+    volumes_from: [apache_with_php]
+    working_dir: /var/www/html
+    command: bash -c "composer install -o && php artisan migrate"
+
+  db:
+    image: mysql:8.0
+    ports:
+      - "3306:3306"
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_DATABASE: laravel
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+    volumes:
+      - ./:/docker-entrypoint-initdb.d
+      - ./:/etc/mysql/conf.d
+      - persistent:/var/lib/mysql
+    networks:
+      - default
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    links:
+      - db:db
+    ports:
+      - 8000:80
+    environment:
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+
+  composer:
+    image: ${COMPOSE_PROJECT_NAME}_apache_with_php
+    volumes_from: [apache_with_php]
+    working_dir: /var/www/html
+    command: composer update -o
+
+volumes:
+  persistent:
