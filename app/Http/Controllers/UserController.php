@@ -13,7 +13,7 @@ use Throwable;
 class UserController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Lista todos os usuário
      *
      * @return \Illuminate\Database\Eloquent\Collection|User[]
      */
@@ -25,9 +25,9 @@ class UserController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Insere novo usuário
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return User
      */
     public function store(Request $request)
@@ -37,9 +37,9 @@ class UserController extends Controller
 
         $user = new User();
 
-        $user->email = $request->email;
-        $user->name = $request->name;
-        $user->cpf = $request->cpf;
+        $user->email    = $request->email;
+        $user->name     = $request->name;
+        $user->cpf      = $request->cpf;
         $user->password = Hash::make($request->password);
 
         $user->save();
@@ -48,17 +48,16 @@ class UserController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Busca usuário por id
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
         try {
             $user = User::findOrFail($id);
-        }
-        catch (Throwable $e) {
+        } catch (Throwable $e) {
             return response()->json(['error' => 'Usuário não encontrado', 'e' => $e->getMessage()]);
         }
 
@@ -67,11 +66,13 @@ class UserController extends Controller
 
 
     /**
+     * Validação de nome completo, email e cpf, com regras custom
      * @param $request
      * @param $required
      * @param string $id
      */
-    public function validaUsuario($request, $required, $id = "") {
+    public function validaUsuario($request, $required, $id = "")
+    {
         $req = $required ? "required" : "";
 
         $request->validate([
@@ -90,10 +91,10 @@ class UserController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Edição de usuário
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update($id, Request $request)
@@ -102,6 +103,10 @@ class UserController extends Controller
         $this->validaUsuario($request, false, $id);
 
         $user = User::find($id);
+
+        if (!$user) {
+            return response()->json(['error' => 'Usuário não encontrado'], 404);
+        }
 
         if (!empty($request->email))
             $user->email = $request->email;
@@ -124,21 +129,27 @@ class UserController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Delete de usuário
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        try {
-            $user = User::findOrFail($id);
 
-            $user->delete();
+        $user_logado = auth()->user();
+
+        $user = User::find($id);
+
+        if (!$user) {
+            return response()->json(['error' => 'Usuário não encontrado'], 404);
         }
-        catch (Throwable $e) {
-            return response()->json(['error' => 'Usuário não encontrado', 'e' => $e->getMessage()]);
+
+        if ($user_logado->id == $user->id) {
+            return response()->json(['error' => 'Não é permitido deletar o usuário que está logado'], 200);
         }
+
+        $user->delete();
 
         return $user;
     }
