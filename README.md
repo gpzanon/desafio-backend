@@ -33,9 +33,11 @@ GET|HEAD - api/user/{id}   - App\Http\Controllers\UserController@show
 - O login irá retornar um token que deve ser usado para autenticar as demais rotas.
 - Também está disponível na pasta `postman` uma collection e um environment do Postman com todas as rotas. Essa collection já está pronta para adicionar automaticamente o token retornado pelo login em todas as requisições.
 
-![postman](readme_images/3.png)
+![postman1](readme_images/8.png)
 
-![postman2](readme_images/7.png)
+![postman2](readme_images/3.png)
+
+![postman3](readme_images/7.png)
 
 Teste da API
 =====
