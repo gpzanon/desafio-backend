@@ -18,7 +18,7 @@ services:
     build: .
     volumes_from: [apache_with_php]
     working_dir: /var/www/html
-    command: bash -c "composer install -o && php artisan migrate"
+    command: bash -c "composer install -o && php artisan migrate && php artisan db:seed"
 
   db:
     image: mysql:8.0
