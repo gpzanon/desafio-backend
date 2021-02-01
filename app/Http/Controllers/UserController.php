@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Rules\ChecaCpf;
+use App\Rules\ChecaMascaraCpf;
+use App\Rules\ChecaNomeCompleto;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -29,6 +32,8 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+
+        $this->validaUsuario($request, true);
 
         $user = new User();
 
@@ -60,6 +65,30 @@ class UserController extends Controller
         return $user;
     }
 
+
+    /**
+     * @param $request
+     * @param $required
+     * @param string $id
+     */
+    public function validaUsuario($request, $required, $id = "") {
+        $req = $required ? "required" : "";
+
+        $request->validate([
+            'email' => "$req |email:rfc,dns|unique:users,email,$id",
+            'cpf' => "$req |unique:users,cpf,$id"
+        ]);
+
+        if (!empty($request->cpf)) {
+            $request->validate(["cpf" => new ChecaCpf()]);
+            $request->validate(["cpf" => new ChecaMascaraCpf()]);
+        }
+
+        if (!empty($request->name)) {
+            $request->validate(["name" => new ChecaNomeCompleto()]);
+        }
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -70,11 +99,7 @@ class UserController extends Controller
     public function update($id, Request $request)
     {
 
-        // validar nome completo
-        // validar se o email ja existe
-        // validar se o email é valido
-        // validar se o cpf existe
-        // validar se o cpf é valido
+        $this->validaUsuario($request, false, $id);
 
         $user = User::find($id);
 
