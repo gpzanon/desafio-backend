@@ -75,7 +75,7 @@ class UserController extends Controller
         $req = $required ? "required" : "";
 
         $request->validate([
-            'email' => "$req |email:rfc,dns|unique:users,email,$id",
+            'email' => "$req |email:rfc|unique:users,email,$id",
             'cpf' => "$req |unique:users,cpf,$id"
         ]);
 
