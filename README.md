@@ -48,3 +48,8 @@ Para rodar os testes, será necessário entrar no container do Docker para rodar
 
 - Para rodar os testes, rode o comando `php artisan test`
 ![test](readme_images/5.png)
+
+DB
+=====
+![db](readme_images/6.png)
+Configuração do DB. User `admin` senha `1234`
