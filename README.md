@@ -35,6 +35,8 @@ GET|HEAD - api/user/{id}   - App\Http\Controllers\UserController@show
 
 ![postman](readme_images/3.png)
 
+![postman2](readme_images/7.png)
+
 Teste da API
 =====
 
