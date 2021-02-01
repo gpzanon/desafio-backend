@@ -13,11 +13,16 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        App\User::create([
-            'email' => 'henzo.gomes@gmail.com',
-            'name' => 'Henzo Gomes',
-            'cpf' => '123.456.789-09',
-            'password' => Hash::make('123')
-        ]);
+
+        $user = \Illuminate\Foundation\Auth\User::where('email', env("LOGIN_EMAIL"))->first();
+
+        if (!$user) {
+            App\User::create([
+                'email' => 'henzo.gomes@gmail.com',
+                'name' => 'Henzo Gomes',
+                'cpf' => '123.456.789-09',
+                'password' => Hash::make('123')
+            ]);
+        }
     }
 }
