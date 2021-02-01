@@ -33,6 +33,7 @@ class UserController extends Controller
     public function store(Request $request)
     {
 
+        #validação dos campos
         $this->validaUsuario($request, true);
 
         $user = new User();
@@ -55,10 +56,11 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        try {
-            $user = User::findOrFail($id);
-        } catch (Throwable $e) {
-            return response()->json(['error' => 'Usuário não encontrado', 'e' => $e->getMessage()]);
+        #valida se o id existe no banco
+        $user = User::find($id);
+
+        if(!$user) {
+            return response()->json(['error' => 'Usuário não encontrado'], 404);
         }
 
         return $user;
