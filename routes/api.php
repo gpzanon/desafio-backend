@@ -1,8 +1,6 @@
 <?php
 
-use App\User;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,6 +14,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth')->get('/user', function (Request $request) {
-    return $request->user();
+Route::get('/', function () {
+    return [
+        'ping' => 'pong',
+        'data' => Carbon::now()->toDateTimeString()
+    ];
+});
+
+Route::get('login', 'AuthController@login');
+
+Route::group(['middleware' => 'auth'], function() {
+    Route::get('index', 'UserController@index');
+    Route::get('me', 'AuthController@me');
+    Route::get('user/{id}', 'UserController@show');
+    Route::post('store', 'UserController@store');
+    Route::post('update/{id}', 'UserController@update');
+    Route::delete('delete/{id}', 'UserController@destroy');
 });
