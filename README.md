@@ -29,7 +29,7 @@ POST     - api/update/{id} - App\Http\Controllers\UserController@update
 GET|HEAD - api/user/{id}   - App\Http\Controllers\UserController@show
 ```
 
-- Antes de consumir a API é necessário logar chamando a rota de login com o usuário `henzo.gomes@gmail.com` senha `123`
+- Antes de consumir a API é necessário logar chamando a rota de login com o usuário `henzo.gomes@gmail.com` senha `123` (esses dados estão parametrizados no `.env`)
 - O login irá retornar um token que deve ser usado para autenticar as demais rotas.
 - Também está disponível na pasta `postman` uma collection e um environment do Postman com todas as rotas. Essa collection já está pronta para adicionar automaticamente o token retornado pelo login em todas as requisições.
 
